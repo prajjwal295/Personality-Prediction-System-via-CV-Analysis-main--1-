@@ -41,6 +41,8 @@ function uploadResume() {
             return response.text();
         })
         .then(data => {
+            debugger
+            console.log(data)
             // Update the result section with the extracted data
             document.getElementById('result').innerHTML = data;
         })

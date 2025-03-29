@@ -72,6 +72,7 @@ def analyze_resume():
 
             # Render the 'result.html' template with extracted details and AI response passed as variables
             return render_template('result.html',
+                                   id = row_number,
                                    name=name,
                                    contact_info=contact_info,
                                    education=education,

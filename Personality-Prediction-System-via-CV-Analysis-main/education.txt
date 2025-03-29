@@ -13,5 +13,6 @@ Postgraduate
 Secondary Education
 Vocational Training
 GED (General Educational Development)
-Bachelor of Technology - BTech
-Information Technology Engineering
+Bachelor of Technology - Information Technology
+Bachelor of Engineering(Information Technology)
+Senior Secondary
