@@ -73,4 +73,217 @@ Managerial Accounting
 Management Accounting
 Accounting Software
 Tax Accounting
-
+Python
+Java
+C++
+Machine Learning
+Data Analysis
+SQL
+JavaScript
+HTML
+CSS
+Problem Solving
+Teamwork
+Communication
+Software Development
+Agile Methodologies
+Cloud Computing
+DevOps
+Database Management
+Cybersecurity
+Statistical Analysis
+Data Visualization
+Artificial Intelligence
+Natural Language Processing
+Robotics
+Web Development
+Mobile Development
+Leadership
+Time Management
+Adaptability
+Creativity
+Critical Thinking
+Decision Making
+Emotional Intelligence
+Negotiation
+Project Management
+Analytical Thinking
+Conflict Resolution
+Networking
+Presentation Skills
+Collaboration
+Customer Service
+Research
+Strategic Planning
+Financial Planning
+Salesmanship
+Marketing
+Accounting
+Bookkeeping
+Budgeting
+Business Analysis
+Business Intelligence
+Business Management
+Business Strategy
+Entrepreneurship
+Risk Management
+Supply Chain Management
+Economics
+Econometrics
+Macroeconomics
+Microeconomics
+Game Theory
+International Trade
+Banking
+Investment Banking
+Financial Analysis
+Financial Modeling
+Financial Reporting
+Financial Risk Management
+Financial Services
+Financial Statements
+Financial Markets
+Financial Accounting
+Managerial Accounting
+Management Accounting
+Accounting Software
+Tax Accounting
+React.js  
+Next.js  
+Vue.js  
+Angular  
+Svelte  
+jQuery  
+Bootstrap  
+Tailwind CSS  
+Material UI  
+Node.js  
+Express.js  
+Django  
+Flask  
+FastAPI  
+Spring Boot  
+ASP.NET  
+PHP  
+Laravel  
+Ruby on Rails  
+GraphQL  
+REST API  
+WebSockets  
+React Native  
+Flutter  
+Swift (iOS)  
+Kotlin (Android)  
+Jetpack Compose  
+Xamarin  
+Ionic  
+Cordova  
+SQL  
+MySQL  
+PostgreSQL  
+MongoDB  
+Cassandra  
+Redis  
+DynamoDB  
+Firebase Firestore  
+SQLite  
+Neo4j  
+CouchDB  
+Oracle DB  
+Microsoft SQL Server  
+GraphQL  
+Elasticsearch  
+AWS (EC2, S3, Lambda, RDS)  
+Google Cloud Platform (GCP)  
+Microsoft Azure  
+Docker  
+Kubernetes  
+Terraform  
+Jenkins  
+GitHub Actions  
+GitLab CI/CD  
+Ansible  
+Puppet  
+Chef  
+Cloudflare  
+Firebase  
+Serverless Architecture  
+Penetration Testing  
+Ethical Hacking  
+Network Security  
+OWASP Security  
+Cryptography  
+Cloud Security  
+Incident Response  
+Threat Intelligence  
+SIEM (Splunk, ELK) 
+TensorFlow  
+PyTorch  
+Scikit-learn  
+Keras  
+OpenCV  
+Hugging Face Transformers  
+Deep Learning  
+Computer Vision  
+Natural Language Processing (NLP)  
+Speech Recognition  
+Reinforcement Learning  
+MLOps  
+AI Model Deployment (TensorFlow Serving, TorchServe)  
+Pandas  
+NumPy  
+Matplotlib  
+Seaborn  
+Plotly  
+Dask  
+Apache Spark  
+Hadoop  
+Power BI  
+Tableau  
+Looker  
+Data Engineering  
+ETL Pipelines  
+BigQuery  
+Microservices Architecture  
+Monolithic Architecture  
+API Development  
+Design Patterns (MVC, MVVM)  
+Multithreading  
+Performance Optimization  
+Software Testing (Unit, Integration, E2E)  
+Test-Driven Development (TDD)  
+Behavior-Driven Development (BDD)  
+Version Control (Git, GitHub, Bitbucket, GitLab)  
+Code Review & Best Practices  
+Ethereum  
+Solidity  
+Smart Contracts  
+NFT Development  
+DApps  
+Hyperledger  
+IPFS  
+Metamask API  
+Polygon  
+Web3.js  
+Hardhat  
+Truffle  
+Unity  
+Unreal Engine  
+Godot  
+Cocos2d  
+Blender (for 3D Modeling)  
+OpenGL  
+DirectX  
+WebGL  
+Web Development
+Mobile Development
+Database Management
+Cloud Computing & DevOps
+Cybersecurity
+Artificial Intelligence & Machine Learning
+AI
+ML
+js
+c#
+Data Science & Analytics
+Software Development & Engineering

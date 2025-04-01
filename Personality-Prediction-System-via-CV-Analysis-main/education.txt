@@ -13,6 +13,179 @@ Postgraduate
 Secondary Education
 Vocational Training
 GED (General Educational Development)
-Bachelor of Technology - Information Technology
-Bachelor of Engineering(Information Technology)
+Bachelor of Technology-Information Technology
+Information Technology
 Senior Secondary
+Bachelor of Physics
+Master of Physics
+Bachelor of Chemistry
+Master of Chemistry
+Bachelor of Biology
+Master of Biology
+Doctor of Science (DSc)
+Diploma in Biotechnology
+Certificate in Environmental Science
+Bachelor of Education (BEd)
+Master of Education (MEd)
+Doctor of Education (EdD)
+Diploma in Early Childhood Education
+Certificate in Teaching English as a Second Language (TESOL)
+Bachelor of Laws (LLB)
+Master of Laws (LLM)
+Juris Doctor (JD)
+Doctor of Juridical Science (SJD)
+Diploma in Legal Studies
+Certificate in Criminal Law
+Bachelor of Political Science
+Master of Political Science
+Bachelor of Fine Arts (BFA)
+Master of Fine Arts (MFA)
+Bachelor of Music (BM)
+Master of Music (MM)
+Bachelor of Journalism (BJ)
+Master of Journalism (MJ)
+Diploma in Photography
+Certificate in Creative Writing
+Bachelor of Computer Science (BCS)
+Master of Computer Science (MCS)
+Bachelor of Information Technology (BIT)
+Master of Information Technology (MIT)
+Diploma in Computer Applications
+Certificate in Cyber Security
+Certified Ethical Hacker (CEH)
+Cisco Certified Network Associate (CCNA)
+Microsoft Certified Solutions Expert (MCSE)
+Google Data Analytics Certificate
+Bachelor of Business Administration (BBA)
+Master of Business Administration (MBA)
+Doctor of Business Administration (DBA)
+Bachelor of Commerce (BCom)
+Master of Commerce (MCom)
+Diploma in Business Management
+Certificate in Business Administration
+Chartered Financial Analyst (CFA)
+Certified Public Accountant (CPA)
+Project Management Professional (PMP)
+Bachelor of Medicine, Bachelor of Surgery (MBBS)
+Doctor of Medicine (MD)
+Bachelor of Dental Surgery (BDS)
+Doctor of Dental Surgery (DDS)
+Bachelor of Pharmacy (BPharm)
+Master of Pharmacy (MPharm)
+Doctor of Pharmacy (PharmD)
+Bachelor of Nursing (BSN)
+Master of Nursing (MSN)
+Diploma in Nursing
+Certificate in Healthcare Management
+Bachelor of Engineering
+Master of Engineering
+Doctor of Engineering
+Bachelor of Technology
+Master of Technology
+Bachelor of Science in Engineering
+Master of Science in Engineering
+Diploma in Engineering
+Certificate in Engineering
+Bachelor of Arts
+Bachelor of Science
+Master of Arts
+Master of Science
+Doctor of Philosophy (PhD)
+Associate Degree
+Diploma
+Certificate
+Postgraduate Diploma
+Undergraduate Diploma
+Advanced Diploma
+BA
+BSc
+MA
+MSc
+PhD
+AD
+Dip
+Cert
+PGDip
+UGDip
+AdvDip
+BE
+ME
+DEng
+BTech
+MTech
+BSE
+MSE
+DipEng
+CertEng
+MBBS
+MD
+BDS
+DDS
+BPharm
+MPharm
+PharmD
+BSN
+MSN
+DipN
+CHM
+BBA
+MBA
+DBA
+BCom
+MCom
+DipBM
+CBA
+CFA
+CPA
+PMP
+BCS
+MCS
+BIT
+MIT
+DCA
+CCS
+CEH
+CCNA
+MCSE
+GDAC
+BFA
+MFA
+BM
+MM
+BJ
+MJ
+DipPhoto
+CCW
+LLB
+LLM
+JD
+SJD
+DipLS
+CCL
+BPS
+MPS
+BPhys
+MPhys
+BChem
+MChem
+BBio
+MBio
+DSc
+DipBiotech
+CES
+BPhys
+MPhys
+BChem
+MChem
+BBio
+MBio
+DSc
+DipBiotech
+CES
+Computer Science
+Information Technology
+B.Tech
+IT
+High School
+InterMediate
+XII

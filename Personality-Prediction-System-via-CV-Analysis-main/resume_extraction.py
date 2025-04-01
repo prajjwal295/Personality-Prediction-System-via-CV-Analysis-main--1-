@@ -1,7 +1,7 @@
 
 import os
 import PyPDF2
-
+from fuzzywuzzy import fuzz
 import spacy
 import re
 from docx import Document
@@ -109,6 +109,7 @@ def extract_name(filename, row_number):
     else:
         extracted_name = f"resume_{row_number}"  # Return row_number if name not found
 
+    print(extracted_name)
     return extracted_name
 
 
@@ -117,93 +118,124 @@ def extract_name(filename, row_number):
 
 
 import re
-
+#updated
 def extract_contact_info(text):
-    # Email extraction pattern
-    email_pattern = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
-    # Phone number extraction pattern (supports various formats)
-    phone_pattern = r'\b(?:\d{3}[-.\s]??\d{3}[-.\s]??\d{4}\b|\(\d{3}\)\s*\d{3}[-.\s]??\d{4}\b|\d{4}[-.\s]??\d{3}[-.\s]??\d{4}\b)'
+    # Email extraction pattern (strict validation)
+    email_pattern = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b'
 
-    # Find email addresses in the text
-    emails = re.findall(email_pattern, text)
-    # Find phone numbers in the text
-    phones = re.findall(phone_pattern, text)
+    # Phone number pattern (Supports international & Indian formats)
+    phone_pattern = r'\b(?:\+?\d{1,3}[-.\s]?)?(?:\d{10}|\d{3}[-.\s]??\d{3}[-.\s]??\d{4}|\(\d{3}\)\s*\d{3}[-.\s]??\d{4})\b'
 
-    # Combine email addresses and phone numbers as contact information
-    contact_info = ', '.join(emails + phones)
+    # Find unique email addresses
+    emails = set(re.findall(email_pattern, text))
 
-    return contact_info
+    # Find unique phone numbers
+    phones = set(re.findall(phone_pattern, text))
 
+    # Convert lists into formatted strings
+    email_str = ", ".join(emails) if emails else "No emails found."
+    phone_str = ", ".join(phones) if phones else "No phone numbers found."
 
+    # Return the result as a formatted string
+    return f"Emails: {email_str}\nPhone Numbers: {phone_str}"
 
-def extract_education(text):
+#updated
+def extract_education(text, education_file='education.txt'):
     # Read education keywords from a file
-    with open('education.txt', 'r', encoding='utf-8') as file:
+    with open(education_file, 'r', encoding='utf-8') as file:
         education_keywords = file.read().splitlines()
-
+    
     # Convert text to lowercase for case-insensitive matching
     lowercase_text = text.lower()
 
-    # Initialize an empty list to store extracted education details
-    education_details = []
+    # Initialize a set to store unique education details
+    education_details = set()
 
-    # Search for education keywords in the text
-    for keyword in education_keywords:
-        if keyword.lower() in lowercase_text:
-            education_details.append(keyword)
+    # Regex pattern to match words with possible variations (e.g., B.Tech, BTech, Bachelor of Technology)
+    pattern = r'\b(?:' + '|'.join(re.escape(keyword) for keyword in education_keywords) + r')\b'
 
-    # Combine the extracted education details into a string
-    education_info = ', '.join(education_details)
+    # Search for exact keyword matches using regex
+    matches = re.findall(pattern, lowercase_text, re.IGNORECASE)
+    education_details.update(matches)
 
-    return education_info
+    # Print the found education details
+    print(education_details)
 
-
-
+    return ', '.join(sorted(education_details))  # Return sorted, unique results
+#updated
 def extract_work_experience(text, work_exp_file='workExp.txt'):
-    # Read work experience keywords from the specified file
+    # Read work experience keywords (job titles) from the file
     with open(work_exp_file, 'r', encoding='utf-8') as file:
-        experience_keywords = file.read().splitlines()
+        experience_keywords = [line.strip().lower() for line in file.readlines()]
 
-    # Convert text to lowercase for case-insensitive matching
+    # Convert text to lowercase for case-insensitive search
     lowercase_text = text.lower()
 
-    # Initialize an empty list to store extracted work experience details
-    experience_details = []
-
-    # Search for work experience keywords in the text
+    # Extract job roles based on exact keyword match (to avoid partial matches)
+    job_roles = []
     for keyword in experience_keywords:
-        if keyword.lower() in lowercase_text:
-            experience_details.append(keyword)
+        if re.search(r'\b' + re.escape(keyword) + r'\b', lowercase_text):  # Match exact word
+            job_roles.append(keyword)
 
-    # Combine the extracted work experience details into a string
-    work_experience_info = ', '.join(experience_details)
+    # Return unique job roles (sorted)
+    return ', '.join(sorted(set(job_roles)))  
+# Return sorted, unique job rolespython 
+def extract_job_roles(text, work_exp_file='workExp.txt'):
+    # Read work experience keywords (job titles) from the file
+    with open(work_exp_file, 'r', encoding='utf-8') as file:
+        experience_keywords = [line.strip().lower() for line in file.readlines()]
 
-    return work_experience_info
+    # Convert text to lowercase for case-insensitive search
+    lowercase_text = text.lower()
 
+    # Extract job roles based on exact keyword match (to avoid partial matches)
+    job_roles = []
+    for keyword in experience_keywords:
+        if re.search(r'\b' + re.escape(keyword) + r'\b', lowercase_text):  # Match exact word
+            job_roles.append(keyword)
 
+    # Return unique job roles (sorted)
+    return ', '.join(sorted(set(job_roles)))  # Return sorted, unique job roles
 
+#updated
 def extract_skills(text, skills_file='skills.txt'):
     # Read skills from the specified file using UTF-8 encoding
     with open(skills_file, 'r', encoding='utf-8') as file:
-        skills_keywords = file.read().splitlines()
+        skills_keywords = set(file.read().splitlines())  # Use a set for faster lookups
 
     # Convert text to lowercase for case-insensitive matching
     lowercase_text = text.lower()
 
-    # Initialize an empty list to store extracted skills
-    skills_list = []
+    # Initialize an empty set to store extracted skills
+    skills_list = set()
 
-    # Search for skill keywords in the text
+    # Search for exact skill matches using regex word boundaries
     for skill in skills_keywords:
-        if skill.lower() in lowercase_text:
-            skills_list.append(skill)
+        pattern = rf'\b{re.escape(skill.lower())}\b'  # Ensures exact word matching
+        if re.search(pattern, lowercase_text):
+            skills_list.add(skill)  # Add skill if found
 
-    # Combine the extracted skills into a string
-    skills_info = ', '.join(skills_list)
-
+    # Convert set to a sorted list and join into a string
+    skills_info = ', '.join(sorted(skills_list))
+    print(skills_info)
     return skills_info
 
 
+
+
+
+    
+
+
+   
+
+
+    
+
+
+
+
+    
 
 
 
@@ -237,6 +269,7 @@ def construct_dataset(folder_path):
             }
 
             dataset.append(resume_data)
+    print(dataset)
     return dataset
 
 

@@ -1,100 +1,149 @@
 Software Engineer
-Data Scientist
-Business Analyst
-Project Manager
 Software Developer
-UX/UI Designer
-Quality Assurance Engineer
-System Administrator
+Frontend Developer
+Backend Developer
+Full Stack Developer
+React Developer
+Node.js Developer
+MERN Stack Developer
+Python Developer
+Java Developer
+C++ Developer
+.NET Developer
+Android Developer
+iOS Developer
+Mobile App Developer
+Embedded Systems Engineer
+Cloud Engineer
+DevOps Engineer
+Cybersecurity Engineer
+Blockchain Developer
+Game Developer
+Game Designer
+VR/AR Developer
+Data Engineer
+Big Data Engineer
+Machine Learning Engineer
+AI Engineer
+NLP Engineer
+Computer Vision Engineer
+Quantum Computing Engineer
+Robotics Engineer
+Database Administrator
 Network Engineer
+System Administrator
+IT Support Specialist
+Technical Support Engineer
+IT Consultant
 Security Analyst
-Technical Support Specialist
-Research Scientist
-Sales Representative
-Marketing Specialist
-Human Resources Manager
-Financial Analyst
-Operations Manager
+Penetration Tester
+Ethical Hacker
+Cloud Security Engineer
+Site Reliability Engineer
+QA Engineer
+Test Automation Engineer
+Software Tester
+Manual Tester
+Performance Tester
 Product Manager
-Customer Service Representative
-Web Designer
-Graphic Designer
-Content Writer
-Event Planner
-Logistics Coordinator
+Project Manager
+Scrum Master
+Business Analyst
+Operations Manager
+HR Manager
+Recruitment Specialist
+Talent Acquisition Manager
+Risk Analyst
 Supply Chain Manager
-Teacher / Instructor
-Legal Counsel
-Healthcare Professional
+Logistics Manager
+Data Scientist
+Data Analyst
+Business Intelligence Analyst
+Financial Analyst
+Marketing Analyst
+SEO Specialist
+Data Visualization Specialist
+Statistical Analyst
+Quantitative Analyst
+Digital Marketing Manager
+Social Media Manager
+Content Manager
+Content Strategist
+SEO Manager
+Email Marketing Specialist
+PPC Specialist
+Growth Hacker
+Brand Manager
+Advertising Manager
+Sales Manager
+Account Manager
+Customer Relationship Manager
+Public Relations Specialist
+Financial Planner
+Investment Banker
+Stock Market Analyst
+Risk Manager
+Wealth Manager
+Chartered Accountant
+Certified Financial Analyst
+Forensic Accountant
+Tax Consultant
+Auditor
+Doctor
+Surgeon
+Dentist
 Pharmacist
-Retail Associate
-Hospitality Manager
-Real Estate Agent
+Medical Researcher
+Biotechnologist
+Healthcare Consultant
+Clinical Data Analyst
+Biomedical Engineer
 Mechanical Engineer
 Electrical Engineer
 Civil Engineer
 Chemical Engineer
-Construction Manager
-Architect
-Veterinarian
-Chef / Cook
-Fitness Trainer
-Athlete
-Artist
-Musician
-Photographer
-Videographer
-Actor
-Dancer
-Model
-Journalist
-Writer
-Editor
-Translator
-Interpreter
-Librarian
-Scientist
-Researcher
+Aerospace Engineer
+Automobile Engineer
+Structural Engineer
+Industrial Engineer
+Metallurgical Engineer
+Marine Engineer
 Professor
 Lecturer
-Academic Advisor
-Counselor
-Therapist
-Psychologist
-Social Worker
-Police Officer
-Firefighter
-Paramedic
-Soldier
-Pilot
-Flight Attendant
-Driver
-Farmer
+Research Scholar
+Online Course Creator
+Instructional Designer
+Corporate Trainer
+Graphic Designer
+UI/UX Designer
+Product Designer
+Visual Designer
+Motion Graphics Designer
+Video Editor
+Animator
+3D Modeler
+Technical Writer
+Copywriter
+Blogger
+Journalist
+Scriptwriter
+Editor
+Proofreader
+Customer Support Engineer
+Technical Support Engineer
+Customer Service Representative
+Call Center Agent
+Client Relations Manager
+Lawyer
+Legal Consultant
+Corporate Lawyer
+Intellectual Property Lawyer
+Compliance Officer
 Entrepreneur
-Business Owner
-Investor
-Accountant
-Banker
-Economist
-Financial Advisor
-Insurance Agent
-Actuary
-Statistician
-Mathematician
-Physicist
-Astronomer
-Biologist
-Chemist
-Geologist
-Meteorologist
-Pharmacist
-Physician
-Nurse
-Dentist
-Dietitian
-Nutritionist
-Pharmacist
-Veterinarian
-Psychiatrist
-Psychologist
-Therapist
+Startup Founder
+Freelancer
+Consultant
+Intern
+SDE 
+SDE Intern
+Software Development Engineer

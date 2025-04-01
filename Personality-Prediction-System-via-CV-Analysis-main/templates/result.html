@@ -1,62 +1,68 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV Analysis Results</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>AI CV Analysis Results</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Inter', sans-serif;
             margin: 0;
             padding: 20px;
-            background: linear-gradient(to bottom, #ece9f5, #c3b1e1);
-        }
-        h1 {
-            text-align: center;
-            color: #4B0082;
-            font-weight: 600;
-            margin-bottom: 30px;
+            background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
         }
         .container {
-            max-width: 600px;
-            margin: auto;
-            background: white;
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 700px;
+            width: 90%;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        h1 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #a29bfe;
         }
         .result-section {
-            background: #f5f0ff;
+            background: rgba(255, 255, 255, 0.15);
             padding: 15px;
-            border-radius: 8px;
+            border-radius: 10px;
             margin-bottom: 15px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            transition: 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: 0.3s ease-in-out;
         }
         .result-section:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transform: scale(1.05);
         }
         .result-title {
             font-size: 16px;
             font-weight: bold;
-            color: #5a189a;
-            margin-bottom: 5px;
+            color: #ffcc70;
         }
         .result-details {
             font-size: 14px;
-            color: #3c096c;
-            padding-left: 10px;
+            color: #dfe6e9;
+            margin-top: 5px;
         }
     </style>
 </head>
 <body>
-    <h1>CV Analysis Results</h1>
     <div class="container">
+        <h1>AI CV Analysis Results</h1>
         <div class="result-section">
-            <div class="result-title">id:</div>
+            <div class="result-title">ID:</div>
             <div class="result-details">{{ id }}</div>
         </div>
         <div class="result-section">
@@ -84,7 +90,7 @@
             <div class="result-details">{{ personality_traits }}</div>
         </div>
         <div class="result-section">
-            <div class="result-title">A.I Personality Prediction:</div>
+            <div class="result-title">AI Personality Prediction:</div>
             <div class="result-details">{{ response }}</div>
         </div>
     </div>
