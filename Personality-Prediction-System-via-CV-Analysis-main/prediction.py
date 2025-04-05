@@ -44,14 +44,16 @@ traits_mapping = read_traits_from_file(traits_file)
 def assign_personality_traits(row):
     traits_scores = {trait: 0 for trait in traits_mapping}
 
-    if not pd.isna(row['Skills']): 
-        user_skills = set(row['Skills'].split(', ')) 
+    if not pd.isna(row['Skills']):
+        user_skills = set(skill.strip().lower() for skill in row['Skills'].split(','))
 
         for trait, skills in traits_mapping.items():
-            trait_skills = set(skills.split(', '))  
-            traits_scores[trait] = len(user_skills.intersection(trait_skills))
+            trait_skills = set(skill.strip().lower() for skill in skills.split(','))
+            matched_skills = user_skills.intersection(trait_skills)
+            traits_scores[trait] = len(matched_skills)
 
     return pd.Series(traits_scores)
+
 
 # Apply the function to the dataframe to assign personality traits
 personality_traits = data.apply(assign_personality_traits, axis=1)

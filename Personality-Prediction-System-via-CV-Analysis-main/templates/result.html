@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,6 +18,7 @@
             align-items: center;
             min-height: 100vh;
         }
+
         .container {
             max-width: 700px;
             width: 90%;
@@ -27,6 +29,7 @@
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
             text-align: center;
         }
+
         h1 {
             font-size: 24px;
             font-weight: 600;
@@ -35,6 +38,7 @@
             letter-spacing: 1px;
             color: #a29bfe;
         }
+
         .result-section {
             background: rgba(255, 255, 255, 0.15);
             padding: 15px;
@@ -43,14 +47,17 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             transition: 0.3s ease-in-out;
         }
+
         .result-section:hover {
             transform: scale(1.05);
         }
+
         .result-title {
             font-size: 16px;
             font-weight: bold;
             color: #ffcc70;
         }
+
         .result-details {
             font-size: 14px;
             color: #dfe6e9;
@@ -58,6 +65,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h1>AI CV Analysis Results</h1>
@@ -87,19 +95,51 @@
         </div>
         <div class="result-section">
             <div class="result-title">Personality Traits:</div>
-            <div class="result-details">{{ personality_traits }}</div>
+            <div class="result-details">
+                <ul style="list-style: none; padding-left: 0;">
+                    {% for trait, score in personality_traits.items() %}
+                    <li><strong>{{ trait }}:</strong> {{ score }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
         </div>
         <div class="result-section">
-            <div class="result-title">Personality Summary:</div>
+            <div class="result-title">AI Feedback:</div>
             <div class="result-details">{{ summary }}</div>
         </div>
-        
+
         <div class="result-section">
-            <div class="result-title">Trait Breakdown:</div>
-            {% for trait, explanation in trait_breakdown.items() %}
-                <div class="result-details"><strong>{{ trait|capitalize }}:</strong> {{ explanation }}</div>
-            {% endfor %}
+            <div class="result-title">Personality Trait Breakdown:</div>
+            <div class="result-details">
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li
+                        style="margin-bottom: 10px; background-color: rgba(255,255,255,0.05); padding: 10px; border-radius: 8px;">
+                        <span style="color: #ffeaa7; font-weight: 600;">🧠 Openness:</span>
+                        <span>{{ trait_breakdown.openness }}</span>
+                    </li>
+                    <li
+                        style="margin-bottom: 10px; background-color: rgba(255,255,255,0.05); padding: 10px; border-radius: 8px;">
+                        <span style="color: #81ecec; font-weight: 600;">📋 Conscientiousness:</span>
+                        <span>{{ trait_breakdown.conscientiousness }}</span>
+                    </li>
+                    <li
+                        style="margin-bottom: 10px; background-color: rgba(255,255,255,0.05); padding: 10px; border-radius: 8px;">
+                        <span style="color: #fab1a0; font-weight: 600;">🎤 Extraversion:</span>
+                        <span>{{ trait_breakdown.extraversion }}</span>
+                    </li>
+                    <li
+                        style="margin-bottom: 10px; background-color: rgba(255,255,255,0.05); padding: 10px; border-radius: 8px;">
+                        <span style="color: #a29bfe; font-weight: 600;">🤝 Agreeableness:</span>
+                        <span>{{ trait_breakdown.agreeableness }}</span>
+                    </li>
+                    <li style="background-color: rgba(255,255,255,0.05); padding: 10px; border-radius: 8px;">
+                        <span style="color: #ff7675; font-weight: 600;">🌪️ Neuroticism:</span>
+                        <span>{{ trait_breakdown.neuroticism }}</span>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
+
 </body>
+
 </html>
