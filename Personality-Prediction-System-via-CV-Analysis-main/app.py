@@ -84,6 +84,13 @@ def analyze_resume():
                 "agreeableness": "Description",
                 "neuroticism": "Description"
             }}
+              "solutions": {{
+                "openness": "Provide suggestions such as exploring emerging technologies, engaging in creative coding projects, or participating in hackathons.",
+                "conscientiousness": "Encourage task prioritization using tools like Trello or Notion, maintaining clean code practices, or improving time-blocking routines.",
+                "extraversion": "Suggest involvement in developer communities, attending meetups or conferences, or leading team presentations.",
+                "agreeableness": "Promote participation in peer code reviews, cross-functional teamwork, or mentorship programs.",
+                "neuroticism": "Recommend mindfulness practices, resilience training, regular feedback sessions, or using stress monitoring tools."
+            }}
             }}
             """
 
@@ -103,6 +110,7 @@ def analyze_resume():
                                    skills=skills,
                                    personality_traits=personality_traits,
                                    summary=response_dict['summary'],
+                                   solutions = response_dict['solutions'],
                                    trait_breakdown=response_dict['trait_breakdown'])
     except Exception as e:
         return jsonify({'error': str(e)}), 500
