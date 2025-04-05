@@ -90,8 +90,15 @@
             <div class="result-details">{{ personality_traits }}</div>
         </div>
         <div class="result-section">
-            <div class="result-title">AI Personality Prediction:</div>
-            <div class="result-details">{{ response }}</div>
+            <div class="result-title">Personality Summary:</div>
+            <div class="result-details">{{ summary }}</div>
+        </div>
+        
+        <div class="result-section">
+            <div class="result-title">Trait Breakdown:</div>
+            {% for trait, explanation in trait_breakdown.items() %}
+                <div class="result-details"><strong>{{ trait|capitalize }}:</strong> {{ explanation }}</div>
+            {% endfor %}
         </div>
     </div>
 </body>

@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, jsonify, send_file
+import json
 from datetime import datetime
 import os
 
@@ -66,9 +67,25 @@ def analyze_resume():
             # Add the personality traits to the extracted details
             extracted_details.update(personality_traits)
             # Generate a response from the AI model
-            query = "describe a candidate's personality if his traits are: " + ', '.join(
-                f"{k}: {v}" for k, v in personality_traits.items())
-            response = chat(query)
+            traits_dict = personality_traits.to_dict()
+            query = {
+            "instruction": "Describe the personality of a candidate based on the following Big Five traits. Return the result in the given JSON format.",
+            "traits": traits_dict,
+            "output_format": {
+                "summary": "Brief personality overview",
+                "trait_breakdown": {
+                    "openness": "Description",
+                    "conscientiousness": "Description",
+                    "extraversion": "Description",
+                    "agreeableness": "Description",
+                    "neuroticism": "Description"
+                }
+            }
+        }
+
+        # Send this as string to your chat model
+            response = chat(json.dumps(query, indent=2))
+            # response = clean_and_format_json(response)
 
             # Render the 'result.html' template with extracted details and AI response passed as variables
             return render_template('result.html',
@@ -79,7 +96,8 @@ def analyze_resume():
                                    work_experience=work_experience,
                                    skills=skills,
                                    personality_traits=personality_traits,
-                                   response=response)
+                                   summary=parsed_response['summary'],
+                                   trait_breakdown=parsed_response['trait_breakdown'])
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
@@ -120,6 +138,20 @@ def save_to_csv(data, filename):
             writer.writerow(data.values())
     except Exception as e:
         print(f"Error occurred while saving to CSV: {e}")
+
+# def clean_and_format_json(raw_json_str):
+#     # Remove json or  if present
+#     cleaned_str = raw_json_str.replace("json", "").replace("", "").strip()
+
+#     try:
+#         # Parse JSON
+#         parsed = json.loads(cleaned_str)
+
+#         # Pretty print formatted JSON
+#         formatted_json = json.dumps(parsed, indent=2)
+#         return formatted_json
+#     except json.JSONDecodeError as e:
+#         return f"Invalid JSON data: {e}"        
 
 if __name__ == '__main__':
     app.run(debug=True)
