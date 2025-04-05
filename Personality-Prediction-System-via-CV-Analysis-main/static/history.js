@@ -1,17 +1,50 @@
-// In history.js
-document.addEventListener('DOMContentLoaded', function() {
-    fetch('/history')
-        .then(response => response.json())
-        .then(data => displayHistory(data))
-        .catch(error => console.error('Error fetching history:', error));
+document.addEventListener("DOMContentLoaded", function () {
+  fetch("/history")
+    .then((response) => response.json())
+    .then((data) => displayHistory(data))
+    .catch((error) => console.error("Error fetching history:", error));
 });
 
 function displayHistory(data) {
-    const historyTableContainer = document.getElementById('historyTableContainer');
-    const historyTable = document.createElement('table');
+  const tableBody = document.querySelector("#historyTable tbody");
 
-    // Generate the table content based on the history data
-    // Similar to the logic used for generating the table in index.html
+  // Clear any existing rows
+  tableBody.innerHTML = "";
 
-    historyTableContainer.appendChild(historyTable);
+  if (data.length === 0) {
+    const noDataRow = document.createElement("tr");
+    const noDataCell = document.createElement("td");
+    noDataCell.colSpan = 4;
+    noDataCell.textContent = "No history records found.";
+    noDataCell.style.textAlign = "center";
+    noDataCell.style.padding = "16px";
+    noDataRow.appendChild(noDataCell);
+    tableBody.appendChild(noDataRow);
+    return;
+  }
+
+  // Populate table rows
+  data.forEach((item, index) => {
+    const row = document.createElement("tr");
+
+    const idCell = document.createElement("td");
+    idCell.textContent = item.id || index + 1;
+
+    const nameCell = document.createElement("td");
+    nameCell.textContent = item.name || "N/A";
+
+    const dateCell = document.createElement("td");
+    const formattedDate = new Date(item.date).toLocaleString();
+    dateCell.textContent = formattedDate || "N/A";
+
+    const resultCell = document.createElement("td");
+    resultCell.textContent = item.result || "N/A";
+
+    row.appendChild(idCell);
+    row.appendChild(nameCell);
+    row.appendChild(dateCell);
+    row.appendChild(resultCell);
+
+    tableBody.appendChild(row);
+  });
 }

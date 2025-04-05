@@ -66,27 +66,33 @@ def analyze_resume():
 
             # Add the personality traits to the extracted details
             extracted_details.update(personality_traits)
-            # Generate a response from the AI model
             traits_dict = personality_traits.to_dict()
-            query = {
-            "instruction": "Describe the personality of a candidate based on the following Big Five traits. Return the result in the given JSON format.",
-            "traits": traits_dict,
-            "output_format": {
-                "summary": "Brief personality overview",
-                "trait_breakdown": {
-                    "openness": "Description",
-                    "conscientiousness": "Description",
-                    "extraversion": "Description",
-                    "agreeableness": "Description",
-                    "neuroticism": "Description"
-                }
-            }
-        }
+            # Generate a response from the AI model
+            # Build the prompt as a plain string
+            query = f"""
+            Describe the personality of a candidate based on the following Big Five traits. Return the result in the given JSON format.
 
-        # Send this as string to your chat model
-            response = chat(json.dumps(query, indent=2))
+            Traits:{traits_dict}
+
+            Output format:
+            {{
+            "summary": "Brief personality overview",
+            "trait_breakdown": {{
+                "openness": "Description",
+                "conscientiousness": "Description",
+                "extraversion": "Description",
+                "agreeableness": "Description",
+                "neuroticism": "Description"
+            }}
+            }}
+            """
+
+            # Send this as string to your chat model
+            response = chat(query)
+            cleaned_response = response.replace("```json", "").replace("```", "").strip()
             # response = clean_and_format_json(response)
-
+            
+            response_dict = json.loads(cleaned_response)
             # Render the 'result.html' template with extracted details and AI response passed as variables
             return render_template('result.html',
                                    id = row_number,
@@ -96,10 +102,11 @@ def analyze_resume():
                                    work_experience=work_experience,
                                    skills=skills,
                                    personality_traits=personality_traits,
-                                   summary=parsed_response['summary'],
-                                   trait_breakdown=parsed_response['trait_breakdown'])
+                                   summary=response_dict['summary'],
+                                   trait_breakdown=response_dict['trait_breakdown'])
     except Exception as e:
         return jsonify({'error': str(e)}), 500
+
 
 @app.route('/history', methods=['GET'])
 def get_history():
@@ -109,6 +116,7 @@ def get_history():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
+
 @app.route('/clear_history', methods=['POST'])
 def clear_history():
     try:
@@ -117,12 +125,14 @@ def clear_history():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
+
 @app.route('/export_data', methods=['GET'])
 def export_data():
     try:
         return send_file('extracted_details.csv', as_attachment=True)
     except Exception as e:
         return jsonify({'error': str(e)}), 500
+
 
 def save_to_csv(data, filename):
     try:
@@ -139,19 +149,20 @@ def save_to_csv(data, filename):
     except Exception as e:
         print(f"Error occurred while saving to CSV: {e}")
 
-# def clean_and_format_json(raw_json_str):
-#     # Remove json or  if present
-#     cleaned_str = raw_json_str.replace("json", "").replace("", "").strip()
 
-#     try:
-#         # Parse JSON
-#         parsed = json.loads(cleaned_str)
+def clean_and_format_json(raw_json_str):
+    # Remove json or  if present
+    cleaned_str = raw_json_str.replace("json", "").replace("", "").strip()
 
-#         # Pretty print formatted JSON
-#         formatted_json = json.dumps(parsed, indent=2)
-#         return formatted_json
-#     except json.JSONDecodeError as e:
-#         return f"Invalid JSON data: {e}"        
+    try:
+        # Parse JSON
+        parsed = json.loads(cleaned_str)
+
+        # Pretty print formatted JSON
+        formatted_json = json.dumps(parsed, indent=2)
+        return formatted_json
+    except json.JSONDecodeError as e:
+        return f"Invalid JSON data: {e}"        
 
 if __name__ == '__main__':
     app.run(debug=True)
