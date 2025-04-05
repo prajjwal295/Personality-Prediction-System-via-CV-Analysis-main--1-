@@ -96,6 +96,7 @@ def analyze_resume():
 
             # Send this as string to your chat model
             response = chat(query)
+            
             cleaned_response = response.replace("```json", "").replace("```", "").strip()
             # response = clean_and_format_json(response)
             
