@@ -84,6 +84,13 @@ def analyze_resume():
                 "agreeableness": "Description",
                 "neuroticism": "Description"
             }}
+            "solutions": {{
+                "openness": "Provide suggestions such as exploring emerging technologies, engaging in creative coding projects, or participating in hackathons.",
+                "conscientiousness": "Encourage task prioritization using tools like Trello or Notion, maintaining clean code practices, or improving time-blocking routines.",
+                "extraversion": "Suggest involvement in developer communities, attending meetups or conferences, or leading team presentations.",
+                "agreeableness": "Promote participation in peer code reviews, cross-functional teamwork, or mentorship programs.",
+                "neuroticism": "Recommend mindfulness practices, resilience training, regular feedback sessions, or using stress monitoring tools."
+            }}
             }}
             """
 
@@ -101,6 +108,7 @@ def analyze_resume():
                                    education=education,
                                    work_experience=work_experience,
                                    skills=skills,
+                                   solutions=response_dict['solutions'],
                                    personality_traits=personality_traits,
                                    summary=response_dict['summary'],
                                    trait_breakdown=response_dict['trait_breakdown'])
