@@ -87,18 +87,12 @@ def analyze_resume():
                 "agreeableness": "Description",
                 "neuroticism": "Description"
             }}
-            "solutions": {{
-                "openness": "Provide suggestions such as exploring emerging technologies, engaging in creative coding projects, or participating in hackathons.",
-                "conscientiousness": "Encourage task prioritization using tools like Trello or Notion, maintaining clean code practices, or improving time-blocking routines.",
-                "extraversion": "Suggest involvement in developer communities, attending meetups or conferences, or leading team presentations.",
-                "agreeableness": "Promote participation in peer code reviews, cross-functional teamwork, or mentorship programs.",
-                "neuroticism": "Recommend mindfulness practices, resilience training, regular feedback sessions, or using stress monitoring tools."
-            }}
             }}
             """
 
             # Send this as string to your chat model
             response = chat(query)
+            
             cleaned_response = response.replace("```json", "").replace("```", "").strip()
             # response = clean_and_format_json(response)
             
@@ -114,6 +108,7 @@ def analyze_resume():
                                    solutions=response_dict['solutions'],
                                    personality_traits=personality_traits,
                                    summary=response_dict['summary'],
+                                   solutions = response_dict['solutions'],
                                    trait_breakdown=response_dict['trait_breakdown'])
     except Exception as e:
         return jsonify({'error': str(e)}), 500
