@@ -97,8 +97,15 @@
             <div class="result-title">Personality Traits:</div>
             <div class="result-details">
                 <ul style="list-style: none; padding-left: 0;">
-                    {% for trait, score in personality_traits.items() %}
-                    <li><strong>{{ trait }}:</strong> {{ score }}</li>
+                    {% for trait, skills in personality_traits.items() %}
+                    <li>
+                        <strong>{{ trait }} ({{ skills | length }}):</strong>
+                        {% if skills %}
+                        [{{ skills | join(', ') }}]
+                        {% else %}
+                        []
+                        {% endif %}
+                    </li>
                     {% endfor %}
                 </ul>
             </div>

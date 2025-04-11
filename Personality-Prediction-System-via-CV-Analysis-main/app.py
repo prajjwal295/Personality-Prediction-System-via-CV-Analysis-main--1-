@@ -63,10 +63,13 @@ def analyze_resume():
 
             # Get the personality traits
             personality_traits = assign_personality_traits(extracted_details)
+            print(personality_traits)
+            personality_traits_count = personality_traits.apply(lambda x: len(x) if isinstance(x, list) else 0)
+
 
             # Add the personality traits to the extracted details
-            extracted_details.update(personality_traits)
-            traits_dict = personality_traits.to_dict()
+            extracted_details.update(personality_traits_count)
+            traits_dict = personality_traits_count.to_dict()
             # Generate a response from the AI model
             # Build the prompt as a plain string
             query = f"""
